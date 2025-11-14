@@ -1,0 +1,36 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:game_launcher.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="game_launcher.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="game_launcher"
+        Width="1200"
+        Height="800"
+        MinWidth="800"
+        MinHeight="450"
+        WindowStartupLocation="CenterOwner"
+        ExtendClientAreaToDecorationsHint="True"
+        ExtendClientAreaChromeHints="NoChrome">
+
+    <Design.DataContext>
+        <!-- This only sets the DataContext for the previewer in an IDE,
+             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+    <Grid x:Name="RootGrid" ColumnDefinitions="Auto,*" RowDefinitions="60,*">
+        <StackPanel Grid.ColumnSpan="2" Background="Blue" PointerPressed="Header_OnPointerPressed">
+            <TextBlock>header</TextBlock>
+        </StackPanel>
+        <StackPanel x:Name="Menu" Width="200" Grid.Column="0" Grid.Row="1" Background="Aqua">
+            <TextBlock>menu</TextBlock>
+            <Button Click="Menu_OnClick" Cursor="Hand">Click</Button>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="1" Background="Bisque">
+            <TextBlock>main</TextBlock>
+        </StackPanel>
+    </Grid>
+</Window>
